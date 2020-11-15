@@ -29,13 +29,15 @@
 			init();
 			animate();
 
+			let R = 6371000.;
+
 			function init() {
 
 				container = document.createElement( 'div' );
 				document.body.appendChild( container );
 
 				camera = new THREE.PerspectiveCamera( 35, window.innerWidth / window.innerHeight, 1, 15 );
-				camera.position.set( 3, 0.15, 3 );
+				camera.position.set( R*3, R*0.15, R*3 );
 
 				cameraTarget = new THREE.Vector3( 0, - 0.1, 0 );
 
