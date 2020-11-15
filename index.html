@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link type="text/css" rel="stylesheet" href="main.css">
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 	</head>
 	<body>
 		<div id="info">
@@ -15,11 +16,11 @@
 
 		<script type="module">
 
-			import * as THREE from '/build/three.module.js';
+			import * as THREE from './build/three.module.js';
 
-			import Stats from '/jsm/libs/stats.module.js';
+			import Stats from './jsm/libs/stats.module.js';
 
-			import { PLYLoader } from '/jsm/loaders/PLYLoader.js';
+			import { PLYLoader } from './jsm/loaders/PLYLoader.js';
 
 			let container, stats;
 
@@ -28,7 +29,7 @@
 			init();
 			animate();
 
-			let R = 6371000.;
+			let R = 6371000;
 
 			function init() {
 
@@ -36,7 +37,7 @@
 				document.body.appendChild( container );
 
 				camera = new THREE.PerspectiveCamera( 35, window.innerWidth / window.innerHeight, 1, 15 );
-				camera.position.set( R*3, R*0.15, R*3 );
+				camera.position.set( 3, 0.15, 3 );
 
 				cameraTarget = new THREE.Vector3( 0, - 0.1, 0 );
 
@@ -72,7 +73,7 @@
 					mesh.position.x = - 0.2;
 					mesh.position.y = - 0.02;
 					mesh.position.z = - 0.2;
-					mesh.scale.multiplyScalar( 0.0006 );
+					mesh.scale.multiplyScalar( 1/R );
 
 					mesh.castShadow = true;
 					mesh.receiveShadow = true;
